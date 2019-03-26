@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F43B633224A2EDD00313D2B /* QuestsSectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43B632224A2EDD00313D2B /* QuestsSectionReusableView.swift */; };
 		7F5C93AA224A3BDA007742F6 /* QuestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C93A9224A3BDA007742F6 /* QuestsViewModel.swift */; };
+		7F5C93AD224A63CB007742F6 /* EditQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C93AC224A63CB007742F6 /* EditQuestViewController.swift */; };
 		7FBBAC932228A88A009183E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBAC922228A88A009183E9 /* AppDelegate.swift */; };
 		7FBBAC952228A88A009183E9 /* QuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBAC942228A88A009183E9 /* QuestsViewController.swift */; };
 		7FBBAC982228A88A009183E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBBAC962228A88A009183E9 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		7F43B632224A2EDD00313D2B /* QuestsSectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsSectionReusableView.swift; sourceTree = "<group>"; };
 		7F5C93A9224A3BDA007742F6 /* QuestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsViewModel.swift; sourceTree = "<group>"; };
+		7F5C93AC224A63CB007742F6 /* EditQuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuestViewController.swift; sourceTree = "<group>"; };
 		7FBBAC8F2228A88A009183E9 /* Capstone App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FBBAC922228A88A009183E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FBBAC942228A88A009183E9 /* QuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		7F5C93A7224A3989007742F6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F5C93AB224A63A6007742F6 /* Quest */,
 				7F5C93A8224A39BC007742F6 /* Quests */,
 			);
 			path = Controllers;
@@ -79,6 +82,14 @@
 				7F5C93A9224A3BDA007742F6 /* QuestsViewModel.swift */,
 			);
 			path = Quests;
+			sourceTree = "<group>";
+		};
+		7F5C93AB224A63A6007742F6 /* Quest */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C93AC224A63CB007742F6 /* EditQuestViewController.swift */,
+			);
+			path = Quest;
 			sourceTree = "<group>";
 		};
 		7FBBAC862228A88A009183E9 = {
@@ -183,6 +194,7 @@
 				7F5C93AA224A3BDA007742F6 /* QuestsViewModel.swift in Sources */,
 				7FBBAC952228A88A009183E9 /* QuestsViewController.swift in Sources */,
 				7FEF6931224812CA00FA4A30 /* QuestCollectionViewCell.swift in Sources */,
+				7F5C93AD224A63CB007742F6 /* EditQuestViewController.swift in Sources */,
 				7FBBAC932228A88A009183E9 /* AppDelegate.swift in Sources */,
 				7FEF692E2247C4AB00FA4A30 /* Model.xcdatamodeld in Sources */,
 			);

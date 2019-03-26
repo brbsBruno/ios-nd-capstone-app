@@ -36,10 +36,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUo-aR-dhd">
-                                                    <rect key="frame" x="0.0" y="93" width="316" height="57"/>
+                                                    <rect key="frame" x="0.0" y="113.5" width="316" height="36.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ0-Tj-t4P">
-                                                            <rect key="frame" x="8" y="8" width="300" height="41"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ0-Tj-t4P">
+                                                            <rect key="frame" x="8" y="8" width="300" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z01-oh-uud">
-                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="93"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="113.5"/>
                                                 </imageView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WKj-Xd-FUm">
                                                     <rect key="frame" x="0.0" y="148" width="316" height="2"/>
@@ -86,8 +86,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l20-cg-liO" customClass="PillLabel" customModule="Capstone_App" customModuleProvider="target">
-                                            <rect key="frame" x="166.5" y="14.5" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l20-cg-liO" customClass="PillLabel" customModule="Capstone_App" customModuleProvider="target">
+                                            <rect key="frame" x="163" y="14.5" width="49.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -113,7 +113,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Quests" id="3tB-NN-kpA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="469-Qh-KXW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="469-Qh-KXW">
+                            <connections>
+                                <segue destination="YaH-mt-tqk" kind="presentation" id="RWg-BV-p5C"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="KbO-XA-g8d" id="cc2-aA-Rbe"/>
@@ -122,6 +126,152 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="902" y="-672"/>
+        </scene>
+        <!--Edit Quest-->
+        <scene sceneID="2KQ-ct-UuF">
+            <objects>
+                <tableViewController id="Bep-fs-0Wn" customClass="EditQuestViewController" customModule="Capstone_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="NTu-86-KuZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="V6s-As-lmK">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BaU-Vm-TCb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="BaU-Vm-TCb" secondAttribute="trailing" id="NzR-z6-LOJ"/>
+                                <constraint firstAttribute="bottom" secondItem="BaU-Vm-TCb" secondAttribute="bottom" id="daN-em-BRi"/>
+                                <constraint firstItem="BaU-Vm-TCb" firstAttribute="top" secondItem="V6s-As-lmK" secondAttribute="top" id="kbV-0L-7Dn"/>
+                                <constraint firstItem="BaU-Vm-TCb" firstAttribute="leading" secondItem="V6s-As-lmK" secondAttribute="leading" id="vqt-Or-XRt"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection headerTitle="Title" footerTitle="A quest is a challenge that you set for yourself." id="Vju-ce-KUP">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fNa-SV-fJj">
+                                        <rect key="frame" x="0.0" y="175.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fNa-SV-fJj" id="zmy-MR-Fp2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g: 📙 Read 20 pages of a book" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u57-XZ-i2c">
+                                                    <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="u57-XZ-i2c" secondAttribute="trailing" constant="16" id="cCn-uC-HWW"/>
+                                                <constraint firstAttribute="bottom" secondItem="u57-XZ-i2c" secondAttribute="bottom" constant="6.5" id="kAS-zU-a6g"/>
+                                                <constraint firstItem="u57-XZ-i2c" firstAttribute="top" secondItem="zmy-MR-Fp2" secondAttribute="top" constant="7" id="uvU-VO-7bL"/>
+                                                <constraint firstItem="u57-XZ-i2c" firstAttribute="leading" secondItem="zmy-MR-Fp2" secondAttribute="leading" constant="16" id="y7n-oz-6zQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Goal" footerTitle="Complete this quest daily to avoid losing your progress." id="92r-gA-jcO">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="KY2-2J-qd2">
+                                        <rect key="frame" x="0.0" y="295" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KY2-2J-qd2" id="eNs-Wh-RiW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="KF2-gd-Fkf">
+                                                    <rect key="frame" x="265" y="7" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="stepperValueChanged:" destination="Bep-fs-0Wn" eventType="valueChanged" id="FEY-0g-qzU"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7v-JQ-BaX">
+                                                    <rect key="frame" x="32" y="11.5" width="29" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KF2-gd-Fkf" firstAttribute="top" secondItem="eNs-Wh-RiW" secondAttribute="top" constant="7" id="0X8-yP-0fi"/>
+                                                <constraint firstAttribute="bottom" secondItem="KF2-gd-Fkf" secondAttribute="bottom" constant="7.5" id="1HC-lD-kDs"/>
+                                                <constraint firstItem="U7v-JQ-BaX" firstAttribute="leading" secondItem="eNs-Wh-RiW" secondAttribute="leadingMargin" constant="16" id="2b7-QE-Liy"/>
+                                                <constraint firstAttribute="trailing" secondItem="KF2-gd-Fkf" secondAttribute="trailing" constant="16" id="4HV-ri-FMy"/>
+                                                <constraint firstItem="KF2-gd-Fkf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="U7v-JQ-BaX" secondAttribute="trailing" constant="204" id="8ng-Ir-eiD"/>
+                                                <constraint firstItem="U7v-JQ-BaX" firstAttribute="centerY" secondItem="eNs-Wh-RiW" secondAttribute="centerY" id="Xmz-pB-Zpa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="bSu-hf-iaW">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Prf-pw-a5S">
+                                        <rect key="frame" x="0.0" y="387" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Prf-pw-a5S" id="PC3-4V-dzR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJV-Zg-Ge3">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Delete"/>
+                                                    <connections>
+                                                        <action selector="deleteQuest:" destination="Bep-fs-0Wn" eventType="touchUpInside" id="jhM-LL-qfN"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="oJV-Zg-Ge3" secondAttribute="bottom" constant="7.5" id="4mk-DZ-TEv"/>
+                                                <constraint firstItem="oJV-Zg-Ge3" firstAttribute="top" secondItem="PC3-4V-dzR" secondAttribute="top" constant="6" id="b4u-If-2Wp"/>
+                                                <constraint firstItem="oJV-Zg-Ge3" firstAttribute="leading" secondItem="PC3-4V-dzR" secondAttribute="leading" constant="16" id="fdG-ka-dWa"/>
+                                                <constraint firstAttribute="trailing" secondItem="oJV-Zg-Ge3" secondAttribute="trailing" constant="16" id="smd-8S-bUy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Bep-fs-0Wn" id="HEh-dr-gGh"/>
+                            <outlet property="delegate" destination="Bep-fs-0Wn" id="NRL-sG-ckW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit Quest" id="wwp-dT-qST">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Muo-mt-PMD">
+                            <connections>
+                                <action selector="cancel:" destination="Bep-fs-0Wn" id="vOY-Cp-HNn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="wtz-E1-CO3">
+                            <connections>
+                                <action selector="save:" destination="Bep-fs-0Wn" id="oC7-L7-uW8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deleteViewCell" destination="Prf-pw-a5S" id="XcV-M8-blE"/>
+                        <outlet property="goalLabel" destination="U7v-JQ-BaX" id="cmH-Wu-VoZ"/>
+                        <outlet property="goalStepper" destination="KF2-gd-Fkf" id="sfz-nE-CLO"/>
+                        <outlet property="imageView" destination="BaU-Vm-TCb" id="CfX-JM-5eP"/>
+                        <outlet property="saveButton" destination="wtz-E1-CO3" id="n4y-Gp-cZW"/>
+                        <outlet property="titleTextField" destination="u57-XZ-i2c" id="KyS-3S-k5b"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lnY-OC-Vdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2632.8000000000002" y="-672.41379310344837"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bPK-3D-jnH">
@@ -140,6 +290,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qen-AY-rWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="-671.51424287856082"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Hv-2f-SEP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YaH-mt-tqk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="chw-fV-g1I">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bep-fs-0Wn" kind="relationship" relationship="rootViewController" id="eAC-Bq-xUX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Bw-y2-OHw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693.5999999999999" y="-672.41379310344837"/>
         </scene>
     </scenes>
 </document>
