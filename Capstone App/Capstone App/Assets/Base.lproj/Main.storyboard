@@ -79,6 +79,7 @@
                                             <outlet property="image" destination="Z01-oh-uud" id="mRW-vD-MUt"/>
                                             <outlet property="progress" destination="WKj-Xd-FUm" id="vUO-aR-2I5"/>
                                             <outlet property="title" destination="RQ0-Tj-t4P" id="STL-qG-dlI"/>
+                                            <segue destination="YaH-mt-tqk" kind="presentation" identifier="showEditQuest" id="5H8-eW-cea"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -115,7 +116,7 @@
                     <navigationItem key="navigationItem" title="Quests" id="3tB-NN-kpA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="469-Qh-KXW">
                             <connections>
-                                <segue destination="YaH-mt-tqk" kind="presentation" identifier="showEditQuest" id="RWg-BV-p5C"/>
+                                <segue destination="YaH-mt-tqk" kind="presentation" identifier="showAddQuest" id="RWg-BV-p5C"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -125,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="-672"/>
+            <point key="canvasLocation" x="951" y="-672"/>
         </scene>
         <!--Edit Quest-->
         <scene sceneID="2KQ-ct-UuF">
@@ -219,7 +220,7 @@
                             </tableViewSection>
                             <tableViewSection id="bSu-hf-iaW">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Prf-pw-a5S">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Prf-pw-a5S">
                                         <rect key="frame" x="0.0" y="387" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Prf-pw-a5S" id="PC3-4V-dzR">
@@ -275,7 +276,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnY-OC-Vdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2632.8000000000002" y="-672.41379310344837"/>
+            <point key="canvasLocation" x="2362" y="-672"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bPK-3D-jnH">
@@ -311,7 +312,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Bw-y2-OHw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693.5999999999999" y="-672.41379310344837"/>
+            <point key="canvasLocation" x="1636" y="-672"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5H8-eW-cea"/>
+    </inferredMetricsTieBreakers>
 </document>

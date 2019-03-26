@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 let QuestCollectionViewCellIdentifier = "QuestCollectionViewCell"
+let showAddQuestSegue = "showAddQuest"
 let showEditQuestSegue = "showEditQuest"
 
 class QuestsViewController: UIViewController {
@@ -36,10 +37,19 @@ class QuestsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == showEditQuestSegue {
+        if segue.identifier == showAddQuestSegue {
             if let destinationNavigationController = segue.destination as? UINavigationController,
                 let targetController = destinationNavigationController.topViewController as? EditQuestViewController {
                 targetController.dataController = dataController
+            }
+        
+        } else if segue.identifier == showEditQuestSegue {
+            if let destinationNavigationController = segue.destination as? UINavigationController,
+                let targetController = destinationNavigationController.topViewController as? EditQuestViewController,
+                let indexPath = collectionView.indexPathsForSelectedItems?.first {
+                let quest = data[indexPath.section].quests[indexPath.row]
+                targetController.dataController = dataController
+                targetController.quest = quest
             }
         }
     }
@@ -52,12 +62,13 @@ class QuestsViewController: UIViewController {
         questsRequest.sortDescriptors = [sortDescriptor]
         
         if let result = try? dataController.viewContext.fetch(questsRequest), result.count > 0 {
-            
             let doneQuests = QuestsViewModel.init(status: .complete, quests: result)
             data = [doneQuests]
-            
-            collectionView.reloadData()
+        } else {
+            data = [QuestsViewModel]()
         }
+        
+        collectionView.reloadData()
     }
     
     private func setupCollectionView() {

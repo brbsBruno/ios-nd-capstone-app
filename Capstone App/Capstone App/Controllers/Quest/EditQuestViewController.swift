@@ -36,17 +36,20 @@ class EditQuestViewController: UITableViewController, FailableView {
     private func setupUI() {
         titleTextField.addTarget(self, action: #selector(toggleSaveButtonActive), for: .editingChanged)
         
-        if let _ = quest {
-            setupUIForEdit()
+        if let quest = quest {
+            setupUIForEdit(quest: quest)
             
         } else {
             setupUIForAdd()
         }
     }
     
-    private func setupUIForEdit() {
+    private func setupUIForEdit(quest: Quest) {
         navigationItem.title = "Edit Quest"
         deleteViewCell.isHidden = false
+        titleTextField.text = quest.name
+        goalLabel.text = String(quest.goal)
+        goalStepper.value = Double(quest.goal)
     }
     
     private func setupUIForAdd() {
@@ -70,10 +73,15 @@ class EditQuestViewController: UITableViewController, FailableView {
             let goalString = goalLabel.text,
             let goal = Int16(goalString) {
             
-            let quest = Quest(context: dataController.viewContext)
-            quest.name = title
-            quest.goal = goal
-            quest.modified = Date()
+            if quest == nil {
+                quest = Quest(context: dataController.viewContext)
+            }
+            
+            if let quest = quest {
+                quest.name = title
+                quest.goal = goal
+                quest.modified = Date()
+            }
             
             do {
                 try dataController.viewContext.save()
@@ -87,7 +95,24 @@ class EditQuestViewController: UITableViewController, FailableView {
     }
     
     @IBAction func deleteQuest(_ sender: Any) {
-        
+        if let quest = quest {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let deleteAction = UIAlertAction(title: "Delete Quest", style: .destructive) { (action) in
+                self.dataController.viewContext.delete(quest)
+                do {
+                    try self.dataController.viewContext.save()
+                    self.dismiss(animated: true, completion: nil)
+                } catch {
+                    let error = NSLocalizedString("Error", comment: "")
+                    let message = NSLocalizedString("Failed to Delete Quest", comment: "")
+                    self.displayFailureAlert(title: error, error: message)
+                }
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(deleteAction)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: Helpers
