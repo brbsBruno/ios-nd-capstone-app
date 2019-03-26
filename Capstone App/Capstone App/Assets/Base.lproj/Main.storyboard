@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VWt-eK-SII">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Quests-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="QuestsViewController" customModule="Capstone_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KbO-XA-g8d">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1cY-8D-1Di">
+                                    <size key="itemSize" width="316" height="150"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="QuestCollectionViewCell" id="MB6-QB-TX1" customClass="QuestCollectionViewCell" customModule="Capstone_App" customModuleProvider="target">
+                                        <rect key="frame" x="29.5" y="50" width="316" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="316" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUo-aR-dhd">
+                                                    <rect key="frame" x="0.0" y="93" width="316" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ0-Tj-t4P">
+                                                            <rect key="frame" x="8" y="8" width="300" height="41"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="0.85084727112676062" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="RQ0-Tj-t4P" secondAttribute="trailing" constant="8" id="2Bv-ZC-Ub9"/>
+                                                        <constraint firstItem="RQ0-Tj-t4P" firstAttribute="leading" secondItem="zUo-aR-dhd" secondAttribute="leading" constant="8" id="cna-M5-3e3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="RQ0-Tj-t4P" secondAttribute="bottom" constant="8" id="gvp-1c-E0Q"/>
+                                                        <constraint firstItem="RQ0-Tj-t4P" firstAttribute="top" secondItem="zUo-aR-dhd" secondAttribute="top" constant="8" id="ye3-AH-Xrb"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z01-oh-uud">
+                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="93"/>
+                                                </imageView>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WKj-Xd-FUm">
+                                                    <rect key="frame" x="0.0" y="148" width="316" height="2"/>
+                                                </progressView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="zUo-aR-dhd" firstAttribute="leading" secondItem="MB6-QB-TX1" secondAttribute="leading" id="D6d-Mv-bff"/>
+                                            <constraint firstItem="Z01-oh-uud" firstAttribute="top" secondItem="MB6-QB-TX1" secondAttribute="top" id="ESH-LA-YCZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="WKj-Xd-FUm" secondAttribute="bottom" id="J6a-fL-W5V"/>
+                                            <constraint firstAttribute="trailing" secondItem="WKj-Xd-FUm" secondAttribute="trailing" id="PsI-hw-7F3"/>
+                                            <constraint firstAttribute="trailing" secondItem="zUo-aR-dhd" secondAttribute="trailing" id="R1O-VP-rnJ"/>
+                                            <constraint firstItem="WKj-Xd-FUm" firstAttribute="leading" secondItem="MB6-QB-TX1" secondAttribute="leading" id="ROx-3A-qF0"/>
+                                            <constraint firstItem="Z01-oh-uud" firstAttribute="leading" secondItem="MB6-QB-TX1" secondAttribute="leading" id="Wcj-D7-SYI"/>
+                                            <constraint firstAttribute="bottom" secondItem="zUo-aR-dhd" secondAttribute="bottom" id="eGZ-Vc-Iws"/>
+                                            <constraint firstItem="zUo-aR-dhd" firstAttribute="top" secondItem="Z01-oh-uud" secondAttribute="bottom" id="jSn-4R-OlT"/>
+                                            <constraint firstAttribute="trailing" secondItem="Z01-oh-uud" secondAttribute="trailing" id="pxA-Wn-jyA"/>
+                                        </constraints>
+                                        <size key="customSize" width="316" height="150"/>
+                                        <connections>
+                                            <outlet property="image" destination="Z01-oh-uud" id="mRW-vD-MUt"/>
+                                            <outlet property="progress" destination="WKj-Xd-FUm" id="vUO-aR-2I5"/>
+                                            <outlet property="title" destination="RQ0-Tj-t4P" id="STL-qG-dlI"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="QuestsSectionReusableView" id="9eO-YR-K4K" customClass="QuestsSectionReusableView" customModule="Capstone_App" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l20-cg-liO" customClass="PillLabel" customModule="Capstone_App" customModuleProvider="target">
+                                            <rect key="frame" x="166.5" y="14.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="l20-cg-liO" firstAttribute="centerX" secondItem="9eO-YR-K4K" secondAttribute="centerX" id="ENB-PV-k5w"/>
+                                        <constraint firstItem="l20-cg-liO" firstAttribute="centerY" secondItem="9eO-YR-K4K" secondAttribute="centerY" id="INH-pS-HMC"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="title" destination="l20-cg-liO" id="Im6-xl-3Vw"/>
+                                    </connections>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KbO-XA-g8d" secondAttribute="bottom" id="Qui-G9-YrS"/>
+                            <constraint firstItem="KbO-XA-g8d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gqO-Fm-hfZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KbO-XA-g8d" secondAttribute="trailing" id="vxN-Sd-R3o"/>
+                            <constraint firstItem="KbO-XA-g8d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wKR-i4-yIj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Quests" id="3tB-NN-kpA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="469-Qh-KXW"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="KbO-XA-g8d" id="cc2-aA-Rbe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="-672"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bPK-3D-jnH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VWt-eK-SII" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="YE6-LY-YuD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3wB-oU-7Zf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qen-AY-rWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="-671.51424287856082"/>
+        </scene>
+    </scenes>
+</document>
