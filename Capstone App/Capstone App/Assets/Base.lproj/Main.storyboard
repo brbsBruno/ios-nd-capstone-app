@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VWt-eK-SII">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VWt-eK-SII">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,7 +115,7 @@
                     <navigationItem key="navigationItem" title="Quests" id="3tB-NN-kpA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="469-Qh-KXW">
                             <connections>
-                                <segue destination="YaH-mt-tqk" kind="presentation" id="RWg-BV-p5C"/>
+                                <segue destination="YaH-mt-tqk" kind="presentation" identifier="showEditQuest" id="RWg-BV-p5C"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -155,7 +155,7 @@
                         <sections>
                             <tableViewSection headerTitle="Title" footerTitle="A quest is a challenge that you set for yourself." id="Vju-ce-KUP">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fNa-SV-fJj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="fNa-SV-fJj">
                                         <rect key="frame" x="0.0" y="175.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fNa-SV-fJj" id="zmy-MR-Fp2">
@@ -164,16 +164,19 @@
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g: 📙 Read 20 pages of a book" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u57-XZ-i2c">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="DIB-TJ-KtR"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="u57-XZ-i2c" secondAttribute="trailing" constant="16" id="cCn-uC-HWW"/>
-                                                <constraint firstAttribute="bottom" secondItem="u57-XZ-i2c" secondAttribute="bottom" constant="6.5" id="kAS-zU-a6g"/>
-                                                <constraint firstItem="u57-XZ-i2c" firstAttribute="top" secondItem="zmy-MR-Fp2" secondAttribute="top" constant="7" id="uvU-VO-7bL"/>
-                                                <constraint firstItem="u57-XZ-i2c" firstAttribute="leading" secondItem="zmy-MR-Fp2" secondAttribute="leading" constant="16" id="y7n-oz-6zQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="u57-XZ-i2c" secondAttribute="trailing" constant="16" id="ab3-pu-sve"/>
+                                                <constraint firstItem="u57-XZ-i2c" firstAttribute="top" secondItem="zmy-MR-Fp2" secondAttribute="top" constant="7" id="hXO-DQ-6tF"/>
+                                                <constraint firstItem="u57-XZ-i2c" firstAttribute="leading" secondItem="zmy-MR-Fp2" secondAttribute="leading" constant="16" id="ndP-jp-t9G"/>
+                                                <constraint firstAttribute="bottom" secondItem="u57-XZ-i2c" secondAttribute="bottom" constant="6.5" id="sq8-Wc-VAh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -195,19 +198,20 @@
                                                     </connections>
                                                 </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7v-JQ-BaX">
-                                                    <rect key="frame" x="32" y="11.5" width="29" height="20.5"/>
+                                                    <rect key="frame" x="32" y="11.5" width="217" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KF2-gd-Fkf" firstAttribute="top" secondItem="eNs-Wh-RiW" secondAttribute="top" constant="7" id="0X8-yP-0fi"/>
-                                                <constraint firstAttribute="bottom" secondItem="KF2-gd-Fkf" secondAttribute="bottom" constant="7.5" id="1HC-lD-kDs"/>
-                                                <constraint firstItem="U7v-JQ-BaX" firstAttribute="leading" secondItem="eNs-Wh-RiW" secondAttribute="leadingMargin" constant="16" id="2b7-QE-Liy"/>
-                                                <constraint firstAttribute="trailing" secondItem="KF2-gd-Fkf" secondAttribute="trailing" constant="16" id="4HV-ri-FMy"/>
-                                                <constraint firstItem="KF2-gd-Fkf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="U7v-JQ-BaX" secondAttribute="trailing" constant="204" id="8ng-Ir-eiD"/>
-                                                <constraint firstItem="U7v-JQ-BaX" firstAttribute="centerY" secondItem="eNs-Wh-RiW" secondAttribute="centerY" id="Xmz-pB-Zpa"/>
+                                                <constraint firstAttribute="bottom" secondItem="KF2-gd-Fkf" secondAttribute="bottom" constant="7.5" id="9RJ-zJ-2E0"/>
+                                                <constraint firstItem="KF2-gd-Fkf" firstAttribute="leading" secondItem="U7v-JQ-BaX" secondAttribute="trailing" constant="16" id="hgg-3r-aHc"/>
+                                                <constraint firstItem="U7v-JQ-BaX" firstAttribute="leading" secondItem="eNs-Wh-RiW" secondAttribute="leadingMargin" constant="16" id="lIe-lp-2jY"/>
+                                                <constraint firstItem="U7v-JQ-BaX" firstAttribute="top" secondItem="eNs-Wh-RiW" secondAttribute="topMargin" constant="0.5" id="m6J-j4-KeC"/>
+                                                <constraint firstItem="KF2-gd-Fkf" firstAttribute="top" secondItem="eNs-Wh-RiW" secondAttribute="top" constant="7" id="mcX-Lh-vJ4"/>
+                                                <constraint firstAttribute="trailing" secondItem="KF2-gd-Fkf" secondAttribute="trailing" constant="16" id="qyW-Nq-Rvr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="U7v-JQ-BaX" secondAttribute="bottom" constant="1" id="t8X-ds-jBU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

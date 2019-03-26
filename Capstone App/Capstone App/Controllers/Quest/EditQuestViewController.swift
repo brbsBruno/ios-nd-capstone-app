@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditQuestViewController: UITableViewController {
+class EditQuestViewController: UITableViewController, FailableView {
     
     // MARK: Properties
     @IBOutlet weak var imageView: UIImageView!
@@ -21,6 +21,8 @@ class EditQuestViewController: UITableViewController {
     @IBOutlet weak var deleteViewCell: UITableViewCell!
     var quest: Quest?
     
+    var dataController: DataController!
+    
     // MARK: ViewController
     
     override func viewDidLoad() {
@@ -32,6 +34,8 @@ class EditQuestViewController: UITableViewController {
     // MARK: Setup
     
     private func setupUI() {
+        titleTextField.addTarget(self, action: #selector(toggleSaveButtonActive), for: .editingChanged)
+        
         if let _ = quest {
             setupUIForEdit()
             
@@ -51,8 +55,10 @@ class EditQuestViewController: UITableViewController {
     }
     
     // MARK: Actions
+    
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         goalLabel.text = Int(sender.value).description
+        toggleSaveButtonActive()
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -60,10 +66,42 @@ class EditQuestViewController: UITableViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-        
+        if let title = titleTextField.text,
+            let goalString = goalLabel.text,
+            let goal = Int16(goalString) {
+            
+            let quest = Quest(context: dataController.viewContext)
+            quest.name = title
+            quest.goal = goal
+            quest.modified = Date()
+            
+            do {
+                try dataController.viewContext.save()
+                self.dismiss(animated: true, completion: nil)
+            } catch {
+                let error = NSLocalizedString("Error", comment: "")
+                let message = NSLocalizedString("Failed to Save Quest", comment: "")
+                displayFailureAlert(title: error, error: message)
+            }
+        }
     }
     
     @IBAction func deleteQuest(_ sender: Any) {
         
     }
+    
+    // MARK: Helpers
+    
+    @objc private func toggleSaveButtonActive() {
+        var enable = false
+        
+        if let title = titleTextField.text,
+            let goalString = goalLabel.text,
+            let goal = Int(goalString), title.count > 0 && Int(goal) > 0  {
+            enable = true
+        }
+        
+        saveButton.isEnabled = enable
+    }
+    
 }

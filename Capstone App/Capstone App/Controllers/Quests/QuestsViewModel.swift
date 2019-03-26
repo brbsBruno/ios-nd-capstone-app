@@ -16,5 +16,5 @@ struct QuestsViewModel {
     }
     
     var status: Status
-    var quests: [String]
+    var quests: [Quest]
 }

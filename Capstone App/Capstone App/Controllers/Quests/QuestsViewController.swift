@@ -7,30 +7,64 @@
 //
 
 import UIKit
+import CoreData
 
 let QuestCollectionViewCellIdentifier = "QuestCollectionViewCell"
+let showEditQuestSegue = "showEditQuest"
 
 class QuestsViewController: UIViewController {
+    
+    // MARK: Properties
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var dataController: DataController!
     var data = [QuestsViewModel]()
+    
+    // MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showEditQuestSegue {
+            if let destinationNavigationController = segue.destination as? UINavigationController,
+                let targetController = destinationNavigationController.topViewController as? EditQuestViewController {
+                targetController.dataController = dataController
+            }
+        }
+    }
+    
+    // MARK: Setup
+    
+    private func loadData() {
+        let questsRequest: NSFetchRequest<Quest> = Quest.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "modified", ascending: false)
+        questsRequest.sortDescriptors = [sortDescriptor]
+        
+        if let result = try? dataController.viewContext.fetch(questsRequest), result.count > 0 {
+            
+            let doneQuests = QuestsViewModel.init(status: .complete, quests: result)
+            data = [doneQuests]
+            
+            collectionView.reloadData()
+        }
+    }
+    
+    private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         
         setupCollectionViewLayout()
-        setupData()
-    }
-    
-    private func setupData() {
-        let pendingQuests = QuestsViewModel.init(status: .pending, quests: ["🏆 Use Quests to build new habits", "☀️ Morning Routine", "📙 Read More Books", "🏃‍♂️ Better Shape"])
-        
-        let doneQuests = QuestsViewModel.init(status: .complete, quests: ["🎉 Finish my capstone App"])
-        
-        data = [pendingQuests, doneQuests]
     }
     
     private func setupCollectionViewLayout() {
@@ -57,6 +91,8 @@ class QuestsViewController: UIViewController {
 }
 
 extension QuestsViewController: UICollectionViewDataSource {
+    
+    // MARK: Sessions
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
@@ -90,6 +126,8 @@ extension QuestsViewController: UICollectionViewDataSource {
         return view
     }
     
+    // MARK: Cells
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data[section].quests.count
     }
@@ -97,7 +135,7 @@ extension QuestsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuestCollectionViewCellIdentifier, for: indexPath) as! QuestCollectionViewCell
         
-        cell.title.text = data[indexPath.section].quests[indexPath.row]
+        cell.title.text = data[indexPath.section].quests[indexPath.row].name
         cell.progress.progress = 0
         return cell
     }
