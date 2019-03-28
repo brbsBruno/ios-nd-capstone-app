@@ -20,6 +20,8 @@ class QuestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var logButton: RoundButton!
+    @IBOutlet weak var streak: UILabel!
+    
     
     var delegate: QuestCollectionViewCellDelegate?
     
@@ -57,8 +59,7 @@ class QuestCollectionViewCell: UICollectionViewCell {
                 }
             }
             
-            let buttonText = "+1/\(quest.goal)"
-            logButton.titleLabel?.text = buttonText
+            streak.text = "\(quest.streak)/\(quest.goal)"
             
             var currentProgress = Float(0)
             if quest.goal > 0 {
@@ -75,7 +76,6 @@ class QuestCollectionViewCell: UICollectionViewCell {
         title.text = nil
         image.image = nil
         progress.progress = 0
-        logButton.titleLabel?.text = "+1"
     }
     
     @IBAction func log(_ sender: Any) {

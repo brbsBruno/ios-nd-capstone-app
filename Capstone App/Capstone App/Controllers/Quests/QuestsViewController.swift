@@ -195,6 +195,9 @@ extension QuestsViewController: QuestCollectionViewCellDelegate {
             } else {
                 quest.streak = 0
             }
+            
+        } else {
+            quest.streak += 1
         }
         
         quest.log = Date()

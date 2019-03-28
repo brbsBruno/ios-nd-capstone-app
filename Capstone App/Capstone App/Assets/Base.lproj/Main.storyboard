@@ -36,10 +36,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUo-aR-dhd">
-                                                    <rect key="frame" x="0.0" y="113.5" width="316" height="36.5"/>
+                                                    <rect key="frame" x="0.0" y="113" width="316" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quest Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ0-Tj-t4P">
-                                                            <rect key="frame" x="8" y="8" width="300" height="20.5"/>
+                                                            <rect key="frame" x="8" y="8" width="83.5" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOs-7v-4yZ">
+                                                            <rect key="frame" x="277" y="8" width="31" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -47,21 +53,25 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="0.85084727112676062" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="RQ0-Tj-t4P" secondAttribute="trailing" constant="8" id="2Bv-ZC-Ub9"/>
+                                                        <constraint firstItem="kOs-7v-4yZ" firstAttribute="top" secondItem="zUo-aR-dhd" secondAttribute="top" constant="8" id="5OF-6v-z8k"/>
+                                                        <constraint firstItem="kOs-7v-4yZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RQ0-Tj-t4P" secondAttribute="trailing" constant="8" id="Dif-hi-Ddo"/>
+                                                        <constraint firstAttribute="bottom" secondItem="kOs-7v-4yZ" secondAttribute="bottom" constant="8" id="WPN-bt-PVy"/>
                                                         <constraint firstItem="RQ0-Tj-t4P" firstAttribute="leading" secondItem="zUo-aR-dhd" secondAttribute="leading" constant="8" id="cna-M5-3e3"/>
                                                         <constraint firstAttribute="bottom" secondItem="RQ0-Tj-t4P" secondAttribute="bottom" constant="8" id="gvp-1c-E0Q"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kOs-7v-4yZ" secondAttribute="trailing" constant="8" id="x7S-Zh-d76"/>
                                                         <constraint firstItem="RQ0-Tj-t4P" firstAttribute="top" secondItem="zUo-aR-dhd" secondAttribute="top" constant="8" id="ye3-AH-Xrb"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z01-oh-uud">
-                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="113.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="113"/>
                                                 </imageView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WKj-Xd-FUm">
                                                     <rect key="frame" x="0.0" y="148" width="316" height="2"/>
+                                                    <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </progressView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EW-DW-ThS" customClass="RoundButton" customModule="Capstone_App" customModuleProvider="target">
                                                     <rect key="frame" x="266" y="40" width="30" height="30"/>
-                                                    <state key="normal" title="+1"/>
+                                                    <state key="normal" title="🔨"/>
                                                     <connections>
                                                         <action selector="log:" destination="MB6-QB-TX1" eventType="touchUpInside" id="sUo-7P-WJw"/>
                                                     </connections>
@@ -89,6 +99,7 @@
                                             <outlet property="image" destination="Z01-oh-uud" id="mRW-vD-MUt"/>
                                             <outlet property="logButton" destination="4EW-DW-ThS" id="DSo-jg-az9"/>
                                             <outlet property="progress" destination="WKj-Xd-FUm" id="vUO-aR-2I5"/>
+                                            <outlet property="streak" destination="kOs-7v-4yZ" id="cvG-x7-gVd"/>
                                             <outlet property="title" destination="RQ0-Tj-t4P" id="STL-qG-dlI"/>
                                             <segue destination="YaH-mt-tqk" kind="presentation" identifier="showEditQuest" id="5H8-eW-cea"/>
                                         </connections>
