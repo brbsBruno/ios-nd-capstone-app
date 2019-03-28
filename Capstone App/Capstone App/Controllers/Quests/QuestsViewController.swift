@@ -13,7 +13,7 @@ let QuestCollectionViewCellIdentifier = "QuestCollectionViewCell"
 let showAddQuestSegue = "showAddQuest"
 let showEditQuestSegue = "showEditQuest"
 
-class QuestsViewController: UIViewController {
+class QuestsViewController: UIViewController, FailableView {
     
     // MARK: Properties
 
@@ -61,19 +61,41 @@ class QuestsViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "modified", ascending: false)
         questsRequest.sortDescriptors = [sortDescriptor]
         
+        data = [QuestsViewModel]()
         if let result = try? dataController.viewContext.fetch(questsRequest), result.count > 0 {
-            let doneQuests = QuestsViewModel.init(status: .complete, quests: result)
-            data = [doneQuests]
-        } else {
-            data = [QuestsViewModel]()
+            var todayPending = [Quest]()
+            var todayComplete = [Quest]()
+            
+            for quest in result {
+                if let log = quest.log {
+                    let hasLoggedToday = Calendar.current.isDateInToday(log)
+                    
+                    if hasLoggedToday {
+                        todayComplete.append(quest)
+                    } else {
+                        todayPending.append(quest)
+                    }
+                    
+                } else {
+                    todayPending.append(quest)
+                }
+            }
+            
+            if todayPending.count > 0 {
+                data.append(QuestsViewModel.init(status: .pending, quests: todayPending))
+            }
+            
+            if todayComplete.count > 0 {
+                data.append(QuestsViewModel.init(status: .complete, quests: todayComplete))
+            }
         }
         
         collectionView.reloadData()
     }
     
     private func setupCollectionView() {
-        collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         setupCollectionViewLayout()
     }
@@ -107,13 +129,14 @@ extension QuestsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        if (data.count == 0) {
+        if data.count == 0 {
             let frame = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
             let noDataLabel = UILabel(frame: frame)
             noDataLabel.numberOfLines = 2
             noDataLabel.text = NSLocalizedString("Start building new habits with Quest. \n Tap the '+' button to start.", comment: "")
             noDataLabel.textAlignment = .center
             collectionView.backgroundView  = noDataLabel
+            
         } else {
             collectionView.backgroundView = nil
         }
@@ -145,21 +168,46 @@ extension QuestsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuestCollectionViewCellIdentifier, for: indexPath) as! QuestCollectionViewCell
-        
-        let quest = data[indexPath.section].quests[indexPath.row]
-        cell.title.text = quest.name
-        
-        if let imageData = quest.cover,
-            let image = UIImage.init(data: imageData) {
-            cell.backgroundView = UIImageView(image: image)
-        }
-        
-        cell.progress.progress = 0
         return cell
     }
 }
 
 extension QuestsViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? QuestCollectionViewCell {
+            let quest = data[indexPath.section].quests[indexPath.row]
+            cell.quest = quest
+            cell.delegate = self
+        }
+    }
+}
+
+extension QuestsViewController: QuestCollectionViewCellDelegate {
+    
+    func logQuest(_ quest: Quest) {
+        if let currentLog = quest.log {
+            let isStreak = Calendar.current.isDateInYesterday(currentLog)
+            
+            if isStreak {
+                quest.streak += 1
+                
+            } else {
+                quest.streak = 0
+            }
+        }
+        
+        quest.log = Date()
+
+        do {
+            try dataController.viewContext.save()
+            loadData()
+            
+        } catch {
+             let error = NSLocalizedString("Error", comment: "")
+             let message = NSLocalizedString("Failed to Log Quest", comment: "")
+             displayFailureAlert(title: error, error: message)
+        }
+    }
 }
 

@@ -81,14 +81,11 @@ class BackgroundPickerViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        // TODO:
         let frame = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
-        let noDataLabel = UILabel(frame: frame)
-        noDataLabel.numberOfLines = 2
-        noDataLabel.text = NSLocalizedString("Find a picture that best fit with your quest.", comment: "")
-        noDataLabel.textAlignment = .center
-        collectionView.backgroundView  = noDataLabel
-        //
+        let defaultLabel = UILabel(frame: frame)
+        defaultLabel.text = NSLocalizedString("Find a picture that best fit with your quest.", comment: "")
+        defaultLabel.textAlignment = .center
+        collectionView.backgroundView = defaultLabel
         
         setupCollectionViewLayout()
     }
@@ -186,6 +183,14 @@ extension BackgroundPickerViewController: UICollectionViewDelegate {
                     
                     DispatchQueue.main.async {
                         cell.backgroundView = UIImageView(image: image)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let frame = CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height)
+                        let errorLabel = UILabel(frame: frame)
+                        errorLabel.text = NSLocalizedString("Fail to retrieve image", comment: "")
+                        errorLabel.textAlignment = .center
+                        cell.backgroundView = errorLabel
                     }
                 }
                 }.resume()

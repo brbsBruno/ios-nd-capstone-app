@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Quests-->
+        <!--Daily Quests-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="QuestsViewController" customModule="Capstone_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,10 +59,18 @@
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WKj-Xd-FUm">
                                                     <rect key="frame" x="0.0" y="148" width="316" height="2"/>
                                                 </progressView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EW-DW-ThS" customClass="RoundButton" customModule="Capstone_App" customModuleProvider="target">
+                                                    <rect key="frame" x="266" y="40" width="30" height="30"/>
+                                                    <state key="normal" title="+1"/>
+                                                    <connections>
+                                                        <action selector="log:" destination="MB6-QB-TX1" eventType="touchUpInside" id="sUo-7P-WJw"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="4EW-DW-ThS" secondAttribute="trailing" constant="12" id="7tI-dR-ewo"/>
                                             <constraint firstItem="zUo-aR-dhd" firstAttribute="leading" secondItem="MB6-QB-TX1" secondAttribute="leading" id="D6d-Mv-bff"/>
                                             <constraint firstItem="Z01-oh-uud" firstAttribute="top" secondItem="MB6-QB-TX1" secondAttribute="top" id="ESH-LA-YCZ"/>
                                             <constraint firstAttribute="bottom" secondItem="WKj-Xd-FUm" secondAttribute="bottom" id="J6a-fL-W5V"/>
@@ -70,13 +78,16 @@
                                             <constraint firstAttribute="trailing" secondItem="zUo-aR-dhd" secondAttribute="trailing" id="R1O-VP-rnJ"/>
                                             <constraint firstItem="WKj-Xd-FUm" firstAttribute="leading" secondItem="MB6-QB-TX1" secondAttribute="leading" id="ROx-3A-qF0"/>
                                             <constraint firstItem="Z01-oh-uud" firstAttribute="leading" secondItem="MB6-QB-TX1" secondAttribute="leading" id="Wcj-D7-SYI"/>
+                                            <constraint firstItem="4EW-DW-ThS" firstAttribute="top" secondItem="MB6-QB-TX1" secondAttribute="topMargin" constant="12" id="b11-Ey-x0i"/>
                                             <constraint firstAttribute="bottom" secondItem="zUo-aR-dhd" secondAttribute="bottom" id="eGZ-Vc-Iws"/>
                                             <constraint firstItem="zUo-aR-dhd" firstAttribute="top" secondItem="Z01-oh-uud" secondAttribute="bottom" id="jSn-4R-OlT"/>
                                             <constraint firstAttribute="trailing" secondItem="Z01-oh-uud" secondAttribute="trailing" id="pxA-Wn-jyA"/>
+                                            <constraint firstItem="4EW-DW-ThS" firstAttribute="leading" relation="lessThanOrEqual" secondItem="MB6-QB-TX1" secondAttribute="leadingMargin" constant="258" id="wuv-j7-TEA"/>
                                         </constraints>
                                         <size key="customSize" width="316" height="150"/>
                                         <connections>
                                             <outlet property="image" destination="Z01-oh-uud" id="mRW-vD-MUt"/>
+                                            <outlet property="logButton" destination="4EW-DW-ThS" id="DSo-jg-az9"/>
                                             <outlet property="progress" destination="WKj-Xd-FUm" id="vUO-aR-2I5"/>
                                             <outlet property="title" destination="RQ0-Tj-t4P" id="STL-qG-dlI"/>
                                             <segue destination="YaH-mt-tqk" kind="presentation" identifier="showEditQuest" id="5H8-eW-cea"/>
@@ -113,7 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Quests" id="3tB-NN-kpA">
+                    <navigationItem key="navigationItem" title="Daily Quests" id="3tB-NN-kpA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="469-Qh-KXW">
                             <connections>
                                 <segue destination="YaH-mt-tqk" kind="presentation" identifier="showAddQuest" id="RWg-BV-p5C"/>
@@ -145,7 +156,7 @@
                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wb-d2-7mV" customClass="RoundButton" customModule="Capstone_App" customModuleProvider="target">
-                                    <rect key="frame" x="323" y="8" width="44" height="44"/>
+                                    <rect key="frame" x="319" y="12" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="0ta-Dn-fCG"/>
                                         <constraint firstAttribute="height" constant="44" id="YWS-TZ-7Ph"/>
@@ -159,11 +170,11 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="5Wb-d2-7mV" firstAttribute="top" secondItem="V6s-As-lmK" secondAttribute="top" constant="8" id="4zr-mW-Dd6"/>
+                                <constraint firstItem="5Wb-d2-7mV" firstAttribute="top" secondItem="V6s-As-lmK" secondAttribute="top" constant="12" id="4zr-mW-Dd6"/>
                                 <constraint firstAttribute="trailing" secondItem="BaU-Vm-TCb" secondAttribute="trailing" id="NzR-z6-LOJ"/>
                                 <constraint firstAttribute="bottom" secondItem="BaU-Vm-TCb" secondAttribute="bottom" id="daN-em-BRi"/>
                                 <constraint firstItem="BaU-Vm-TCb" firstAttribute="top" secondItem="V6s-As-lmK" secondAttribute="top" id="kbV-0L-7Dn"/>
-                                <constraint firstAttribute="trailing" secondItem="5Wb-d2-7mV" secondAttribute="trailing" constant="8" id="pdB-zt-neK"/>
+                                <constraint firstAttribute="trailing" secondItem="5Wb-d2-7mV" secondAttribute="trailing" constant="12" id="pdB-zt-neK"/>
                                 <constraint firstItem="BaU-Vm-TCb" firstAttribute="leading" secondItem="V6s-As-lmK" secondAttribute="leading" id="vqt-Or-XRt"/>
                             </constraints>
                         </view>
