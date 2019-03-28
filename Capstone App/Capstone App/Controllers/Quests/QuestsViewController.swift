@@ -146,7 +146,14 @@ extension QuestsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuestCollectionViewCellIdentifier, for: indexPath) as! QuestCollectionViewCell
         
-        cell.title.text = data[indexPath.section].quests[indexPath.row].name
+        let quest = data[indexPath.section].quests[indexPath.row]
+        cell.title.text = quest.name
+        
+        if let imageData = quest.cover,
+            let image = UIImage.init(data: imageData) {
+            cell.backgroundView = UIImageView(image: image)
+        }
+        
         cell.progress.progress = 0
         return cell
     }

@@ -137,27 +137,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="V6s-As-lmK">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BaU-Vm-TCb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wb-d2-7mV" customClass="RoundButton" customModule="Capstone_App" customModuleProvider="target">
+                                    <rect key="frame" x="323" y="8" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="44" id="0ta-Dn-fCG"/>
+                                        <constraint firstAttribute="height" constant="44" id="YWS-TZ-7Ph"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                    <state key="normal" image="camera"/>
+                                    <connections>
+                                        <segue destination="3Bu-WM-kFb" kind="show" identifier="showBackgroundPicker" id="gbx-51-1xW"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="5Wb-d2-7mV" firstAttribute="top" secondItem="V6s-As-lmK" secondAttribute="top" constant="8" id="4zr-mW-Dd6"/>
                                 <constraint firstAttribute="trailing" secondItem="BaU-Vm-TCb" secondAttribute="trailing" id="NzR-z6-LOJ"/>
                                 <constraint firstAttribute="bottom" secondItem="BaU-Vm-TCb" secondAttribute="bottom" id="daN-em-BRi"/>
                                 <constraint firstItem="BaU-Vm-TCb" firstAttribute="top" secondItem="V6s-As-lmK" secondAttribute="top" id="kbV-0L-7Dn"/>
+                                <constraint firstAttribute="trailing" secondItem="5Wb-d2-7mV" secondAttribute="trailing" constant="8" id="pdB-zt-neK"/>
                                 <constraint firstItem="BaU-Vm-TCb" firstAttribute="leading" secondItem="V6s-As-lmK" secondAttribute="leading" id="vqt-Or-XRt"/>
                             </constraints>
                         </view>
+                        <textView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" id="iLS-um-HXT">
+                            <rect key="frame" x="0.0" y="469" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Camera Icon made by Daniel Bruce from www.flaticon.com">
+                                    <attributes>
+                                        <color key="NSColor" white="0.33333000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                        </textView>
                         <sections>
                             <tableViewSection headerTitle="Title" footerTitle="A quest is a challenge that you set for yourself." id="Vju-ce-KUP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="fNa-SV-fJj">
-                                        <rect key="frame" x="0.0" y="175.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="195.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fNa-SV-fJj" id="zmy-MR-Fp2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -186,7 +215,7 @@
                             <tableViewSection headerTitle="Goal" footerTitle="Complete this quest daily to avoid losing your progress." id="92r-gA-jcO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="KY2-2J-qd2">
-                                        <rect key="frame" x="0.0" y="295" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="315" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KY2-2J-qd2" id="eNs-Wh-RiW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -221,7 +250,7 @@
                             <tableViewSection id="bSu-hf-iaW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Prf-pw-a5S">
-                                        <rect key="frame" x="0.0" y="387" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="407" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Prf-pw-a5S" id="PC3-4V-dzR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -266,6 +295,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="creditsTextView" destination="iLS-um-HXT" id="Ffs-aT-Bcj"/>
                         <outlet property="deleteViewCell" destination="Prf-pw-a5S" id="XcV-M8-blE"/>
                         <outlet property="goalLabel" destination="U7v-JQ-BaX" id="cmH-Wu-VoZ"/>
                         <outlet property="goalStepper" destination="KF2-gd-Fkf" id="sfz-nE-CLO"/>
@@ -314,7 +344,64 @@
             </objects>
             <point key="canvasLocation" x="1636" y="-672"/>
         </scene>
+        <!--Background-->
+        <scene sceneID="NM4-9d-0B9">
+            <objects>
+                <viewController title="Background" id="3Bu-WM-kFb" customClass="BackgroundPickerViewController" customModule="Capstone_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I6P-J9-b2o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vYa-ay-xpc">
+                                <rect key="frame" x="0.0" y="116" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hfD-0h-X5P">
+                                <rect key="frame" x="0.0" y="172" width="375" height="495"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rXm-WA-cku">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BackgroundCollectionViewCell" id="DVh-xH-0Vs">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vYa-ay-xpc" firstAttribute="trailing" secondItem="4xO-oP-GWQ" secondAttribute="trailing" id="PVc-Aq-Nk0"/>
+                            <constraint firstItem="4xO-oP-GWQ" firstAttribute="bottom" secondItem="hfD-0h-X5P" secondAttribute="bottom" id="UKj-P9-UPH"/>
+                            <constraint firstItem="hfD-0h-X5P" firstAttribute="top" secondItem="vYa-ay-xpc" secondAttribute="bottom" id="cwF-s5-eF5"/>
+                            <constraint firstItem="vYa-ay-xpc" firstAttribute="leading" secondItem="4xO-oP-GWQ" secondAttribute="leading" id="iKM-tq-XC6"/>
+                            <constraint firstItem="hfD-0h-X5P" firstAttribute="leading" secondItem="4xO-oP-GWQ" secondAttribute="leading" id="tOM-YV-7CO"/>
+                            <constraint firstItem="vYa-ay-xpc" firstAttribute="top" secondItem="4xO-oP-GWQ" secondAttribute="top" id="vEh-aM-SHw"/>
+                            <constraint firstItem="hfD-0h-X5P" firstAttribute="trailing" secondItem="4xO-oP-GWQ" secondAttribute="trailing" id="zZr-C3-PRE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4xO-oP-GWQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="hfD-0h-X5P" id="13M-Fp-qOQ"/>
+                        <outlet property="searchBar" destination="vYa-ay-xpc" id="Ou2-FM-Rhh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="coh-Gg-nqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3117.5999999999999" y="-672.41379310344837"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="75" height="75"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5H8-eW-cea"/>
     </inferredMetricsTieBreakers>

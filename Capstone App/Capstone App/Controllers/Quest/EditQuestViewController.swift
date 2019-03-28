@@ -8,6 +8,8 @@
 
 import UIKit
 
+let showBackgroundPicker = "showBackgroundPicker"
+
 class EditQuestViewController: UITableViewController, FailableView {
     
     // MARK: Properties
@@ -17,6 +19,10 @@ class EditQuestViewController: UITableViewController, FailableView {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalStepper: UIStepper!
     @IBOutlet weak var saveButton: UIBarButtonItem!    
+    
+    
+    @IBOutlet weak var creditsLabel: UILabel!
+    @IBOutlet weak var creditsTextView: UITextView!
     
     @IBOutlet weak var deleteViewCell: UITableViewCell!
     var quest: Quest?
@@ -31,6 +37,14 @@ class EditQuestViewController: UITableViewController, FailableView {
         setupUI()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showBackgroundPicker {
+            if let destination = segue.destination as? BackgroundPickerViewController {
+                destination.delegate = self
+            }
+        }
+    }
+    
     // MARK: Setup
     
     private func setupUI() {
@@ -42,6 +56,8 @@ class EditQuestViewController: UITableViewController, FailableView {
         } else {
             setupUIForAdd()
         }
+        
+        setupCreditsLabel()
     }
     
     private func setupUIForEdit(quest: Quest) {
@@ -50,11 +66,35 @@ class EditQuestViewController: UITableViewController, FailableView {
         titleTextField.text = quest.name
         goalLabel.text = String(quest.goal)
         goalStepper.value = Double(quest.goal)
+        if let imageData = quest.cover,
+            let image = UIImage.init(data: imageData) {
+            imageView.image = image
+        }
     }
     
     private func setupUIForAdd() {
         navigationItem.title = "Add Quest"
         deleteViewCell.isHidden = true
+    }
+    
+    private func setupCreditsLabel() {
+        let authorURL = "https://www.flaticon.com/authors/daniel-bruce"
+        let repoURL = "https://www.flaticon.com"
+        
+        let credits = NSAttributedString(string: NSLocalizedString("Camera Icon made by ", comment: ""))
+        let author = NSAttributedString(string: NSLocalizedString("Daniel Bruce", comment: ""), attributes:[NSAttributedString.Key.link: URL(string: authorURL)!])
+        let from = NSAttributedString(string: NSLocalizedString(" from ", comment: ""))
+        let repo = NSAttributedString(string: NSLocalizedString("www.flaticon.com", comment: ""), attributes:[NSAttributedString.Key.link: URL(string: repoURL)!])
+        
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(credits)
+        attributedText.append(author)
+        attributedText.append(from)
+        attributedText.append(repo)
+        
+        creditsTextView.attributedText = attributedText
+        creditsTextView.textAlignment = .center
+        creditsTextView.textColor = .gray
     }
     
     // MARK: Actions
@@ -80,6 +120,11 @@ class EditQuestViewController: UITableViewController, FailableView {
             if let quest = quest {
                 quest.name = title
                 quest.goal = goal
+                
+                if let image = imageView.image {
+                    quest.cover = image.pngData()
+                }
+                
                 quest.modified = Date()
             }
             
@@ -127,6 +172,15 @@ class EditQuestViewController: UITableViewController, FailableView {
         }
         
         saveButton.isEnabled = enable
+    }
+    
+}
+
+extension EditQuestViewController: BackgroundPickerDelegate {
+    
+    func selectedBackground(image: UIImage) {
+        imageView.image = image
+        toggleSaveButtonActive()
     }
     
 }
